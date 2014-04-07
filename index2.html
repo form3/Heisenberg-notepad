@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+
+<h1>Mr. Heisenberg notepad</h1>
+
+<table class="list-table">
+	<thead>
+	<tr>
+		<th style="width:30%">Name</th>
+		<th style="width:30%">Weight</th>
+		<th style="width:30%">Price</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody data-bind="foreach: listArr">
+		<tr>
+			<td data-bind="text: name"></td>
+			<td data-bind="text: weight"></td>
+			<td data-bind="text: price"></td>
+			<td>
+				<a class="edit" data-bind="click: $root.getNote" title="edit"></a>
+				<a class="delete" data-bind="click: $root.removeNote" title="delete"></a>
+		</tr>
+	</tbody>
+</table>
+
+<table class="action-table">
+	<tr>
+		<td style="width:30%" class="name">
+			<input data-bind='value: newName, valueUpdate: "afterkeydown"' type="text" placeholder="client name" />
+		</td>
+		<td style="width:30%" class="weight">
+			<input data-bind='value: newWeight, valueUpdate: "afterkeydown"' type="text" placeholder="product weight" />
+		</td>
+		<td style="width:30%" class="price">
+			<input data-bind='value: newPrice, valueUpdate: "afterkeydown"' type="text" placeholder="product price" />
+		</td>
+		<td class="actions-btns">
+			<button data-bind="click: addNote" title="add client" class="add-btn"></button>
+			<button data-bind="click: updateNote" title="edit client" class="edit-btn" style="display:none"></button>
+		</td>
+	</tr>
+</table>
+
+<div data-bind="click: showJSON" class="showJSON" title="show JSON (console)"></div>
+
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/knockout-3.1.0.js"></script>
+<script src="js/main2.js"></script>
+
+</body>
+</html>
